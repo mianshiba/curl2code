@@ -1,0 +1,11 @@
+*.iml
+.idea
+.vscode
+
+.tmp
+.DS_Store
+
+package-lock.json
+node_modules
+dist
+.sass-cache
