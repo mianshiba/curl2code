@@ -27,9 +27,10 @@ jobs:
         npm install
         npx webpack
         
-    - name: Deploy to GitHub Pages
-      uses: Cecilapp/GitHub-Pages-deploy@2.0.0
-      env:
-        EMAIL: mianshiba2021@163.com               
-        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }} 
-        BUILD_DIR: dist/
+    -name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: main
+          FOLDER: dist
+          CLEAN: true
