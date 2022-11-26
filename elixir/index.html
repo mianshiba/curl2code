@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to Elixir</title>
   </head>
   <body>
 
@@ -76,7 +76,7 @@
           <option value="csharp">C#</option>
           <option value="cfml">ColdFusion ML</option>
           <option value="dart">Dart</option>
-          <option value="elixir">Elixir</option>
+          <option value="elixir" selected>Elixir</option>
           <option value="go">Go</option>
           <option value="java">Java</option>
           <option value="javascript">JavaScript</option>
@@ -86,7 +86,7 @@
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
           <option value="rust">Rust</option>
@@ -112,7 +112,7 @@
           <a class="nav-link" href="/dart/">Dart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/elixir/">Elixir</a>
+          <a class="nav-link active" href="/elixir/">Elixir</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/go/">Go</a>
@@ -141,7 +141,7 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
@@ -157,9 +157,8 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
-
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+        <pre><code id="generated-code">response = <span class="hljs-title class_">HTTPoison</span>.get!(<span class="hljs-string">&quot;http://example.com&quot;</span>)
+</code></pre>
       </div>
     </div>
     <div class="row">

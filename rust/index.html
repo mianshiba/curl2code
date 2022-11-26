@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to Rust</title>
   </head>
   <body>
 
@@ -86,10 +86,10 @@
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
-          <option value="rust">Rust</option>
+          <option value="rust" selected>Rust</option>
         </select>
       </div>
       <ul class="nav nav-tabs d-none d-xl-flex px-3" id="language-navbar">
@@ -141,7 +141,7 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
@@ -150,16 +150,28 @@
           <a class="nav-link" href="/ruby/">Ruby</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/rust/">Rust</a>
+          <a class="nav-link active" href="/rust/">Rust</a>
         </li>
       </ul>
     </div>
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
+        <pre><code id="generated-code"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">crate</span> reqwest;
 
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), <span class="hljs-type">Box</span>&lt;<span class="hljs-keyword">dyn</span> std::error::Error&gt;&gt; {
+    <span class="hljs-keyword">let</span> <span class="hljs-variable">client</span> = reqwest::blocking::Client::<span class="hljs-title function_ invoke__">builder</span>()
+        .<span class="hljs-title function_ invoke__">redirect</span>(reqwest::redirect::Policy::<span class="hljs-title function_ invoke__">none</span>())
+        .<span class="hljs-title function_ invoke__">build</span>()
+        .<span class="hljs-title function_ invoke__">unwrap</span>();
+    <span class="hljs-keyword">let</span> <span class="hljs-variable">res</span> = client.<span class="hljs-title function_ invoke__">get</span>(<span class="hljs-string">&quot;http://example.com&quot;</span>)
+        .<span class="hljs-title function_ invoke__">send</span>()?
+        .<span class="hljs-title function_ invoke__">text</span>()?;
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, res);
+
+    <span class="hljs-title function_ invoke__">Ok</span>(())
+}
+</code></pre>
       </div>
     </div>
     <div class="row">

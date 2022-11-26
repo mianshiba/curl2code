@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to ColdFusion Markup Language</title>
   </head>
   <body>
 
@@ -74,7 +74,7 @@
         <select class="form-select form-select-lg" id="language-select">
           <option value="ansible">Ansible</option>
           <option value="csharp">C#</option>
-          <option value="cfml">ColdFusion ML</option>
+          <option value="cfml" selected>ColdFusion ML</option>
           <option value="dart">Dart</option>
           <option value="elixir">Elixir</option>
           <option value="go">Go</option>
@@ -86,7 +86,7 @@
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
           <option value="rust">Rust</option>
@@ -106,7 +106,7 @@
           <a class="nav-link" href="/csharp/">C#</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/cfml/" title="ColdFusion Markup Language">CFML</a>
+          <a class="nav-link active" href="/cfml/" title="ColdFusion Markup Language">CFML</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/dart/">Dart</a>
@@ -141,7 +141,7 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
@@ -157,9 +157,13 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
+        <pre><code id="generated-code">httpService = <span class="hljs-keyword">new</span> <span class="hljs-title function_">http</span>();
+httpService.<span class="hljs-title function_">setUrl</span>(<span class="hljs-string">&quot;http://example.com&quot;</span>);
+httpService.<span class="hljs-title function_">setMethod</span>(<span class="hljs-string">&quot;GET&quot;</span>);
 
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+result = httpService.<span class="hljs-title function_">send</span>().<span class="hljs-title function_">getPrefix</span>();
+<span class="hljs-title function_">writeDump</span>(result);
+</code></pre>
       </div>
     </div>
     <div class="row">

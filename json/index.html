@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to a JSON object</title>
   </head>
   <body>
 
@@ -80,13 +80,13 @@
           <option value="go">Go</option>
           <option value="java">Java</option>
           <option value="javascript">JavaScript</option>
-          <option value="json">JSON</option>
+          <option value="json" selected>JSON</option>
           <option value="node-axios">Node.js (Axios)</option>
           <option value="node-fetch">Node.js (node-fetch)</option>
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
           <option value="rust">Rust</option>
@@ -124,7 +124,7 @@
           <a class="nav-link" href="/javascript/">JavaScript</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/json/">JSON</a>
+          <a class="nav-link active" href="/json/">JSON</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Node.js</a>
@@ -141,7 +141,7 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
@@ -157,9 +157,12 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
-
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+        <pre><code id="generated-code"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://example.com&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;raw_url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://example.com&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;method&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;get&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
       </div>
     </div>
     <div class="row">
