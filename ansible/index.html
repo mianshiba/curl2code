@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to Ansible</title>
   </head>
   <body>
 
@@ -66,7 +66,7 @@
       </div>
       <div class="col col-sm-auto d-xl-none px-sm-0">
         <select class="form-select form-select-lg" id="language-select">
-          <option value="ansible">Ansible</option>
+          <option value="ansible" selected>Ansible</option>
           <option value="csharp">C#</option>
           <option value="cfml">ColdFusion ML</option>
           <option value="dart">Dart</option>
@@ -80,7 +80,7 @@
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
           <option value="rust">Rust</option>
@@ -88,7 +88,7 @@
       </div>
       <ul class="nav nav-tabs d-none d-xl-flex px-3" id="language-navbar">
         <li class="nav-item">
-          <a class="nav-link" href="/ansible/">Ansible</a>
+          <a class="nav-link active" href="/ansible/">Ansible</a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-outbound" href="https://everything.curl.dev/libcurl/libcurl">
@@ -135,7 +135,7 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
@@ -151,9 +151,13 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
-
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+        <pre><code id="generated-code"><span class="hljs-bullet">-</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;http://example.com&#x27;</span>
+  <span class="hljs-attr">uri:</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&#x27;http://example.com&#x27;</span>
+    <span class="hljs-attr">method:</span> <span class="hljs-string">GET</span>
+  <span class="hljs-attr">register:</span> <span class="hljs-string">result</span>
+</code></pre>
       </div>
     </div>
     <div class="row">

@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to Go</title>
   </head>
   <body>
 
@@ -71,7 +71,7 @@
           <option value="cfml">ColdFusion ML</option>
           <option value="dart">Dart</option>
           <option value="elixir">Elixir</option>
-          <option value="go">Go</option>
+          <option value="go" selected>Go</option>
           <option value="java">Java</option>
           <option value="javascript">JavaScript</option>
           <option value="json">JSON</option>
@@ -80,7 +80,7 @@
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
           <option value="ruby">Ruby</option>
           <option value="rust">Rust</option>
@@ -109,7 +109,7 @@
           <a class="nav-link" href="/elixir/">Elixir</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/go/">Go</a>
+          <a class="nav-link active" href="/go/">Go</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/java/">Java</a>
@@ -135,7 +135,7 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
@@ -151,9 +151,33 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
+        <pre><code id="generated-code"><span class="hljs-keyword">package</span> main
 
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+	<span class="hljs-string">&quot;io/ioutil&quot;</span>
+	<span class="hljs-string">&quot;log&quot;</span>
+	<span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	client := &amp;http.Client{}
+	req, err := http.NewRequest(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;http://example.com&quot;</span>, <span class="hljs-literal">nil</span>)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		log.Fatal(err)
+	}
+	resp, err := client.Do(req)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		log.Fatal(err)
+	}
+	<span class="hljs-keyword">defer</span> resp.Body.Close()
+	bodyText, err := ioutil.ReadAll(resp.Body)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		log.Fatal(err)
+	}
+	fmt.Printf(<span class="hljs-string">&quot;%s\n&quot;</span>, bodyText)
+}
+</code></pre>
       </div>
     </div>
     <div class="row">

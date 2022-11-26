@@ -26,7 +26,7 @@
 
     <script defer data-domain="curlconverter.com" src="https://plausible.io/js/plausible.js"></script>
 
-    <title>Convert curl commands to code</title>
+    <title>Convert curl commands to Ruby</title>
   </head>
   <body>
 
@@ -80,9 +80,9 @@
           <option value="node-request">Node.js (request)</option>
           <option value="matlab">MATLAB</option>
           <option value="php">PHP</option>
-          <option value="python" selected>Python</option>
+          <option value="python">Python</option>
           <option value="r">R</option>
-          <option value="ruby">Ruby</option>
+          <option value="ruby" selected>Ruby</option>
           <option value="rust">Rust</option>
         </select>
       </div>
@@ -135,13 +135,13 @@
           <a class="nav-link" href="/php/">PHP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/python/">Python</a>
+          <a class="nav-link" href="/python/">Python</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/r/">R</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/ruby/">Ruby</a>
+          <a class="nav-link active" href="/ruby/">Ruby</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/rust/">Rust</a>
@@ -151,9 +151,11 @@
 
     <div class="row">
       <div class="col">
-        <pre><code id="generated-code"><span class="hljs-keyword">import</span> requests
+        <pre><code id="generated-code"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;net/http&#x27;</span>
 
-response = requests.get(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)</code></pre>
+uri = <span class="hljs-variable constant_">URI</span>(<span class="hljs-string">&#x27;http://example.com&#x27;</span>)
+res = <span class="hljs-title class_">Net</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:HTTP</span>.get_response(uri)
+</code></pre>
       </div>
     </div>
     <div class="row">
